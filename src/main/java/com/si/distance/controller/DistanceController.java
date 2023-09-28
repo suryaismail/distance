@@ -8,14 +8,13 @@ import com.si.distance.data.*;
 @RestController
 public class DistanceController {
 
-
   @GetMapping("/calculate")
-  public TotalDistance greeting(
+  public TotalDistance totalDistance(
       @RequestParam(value = "distanceA", defaultValue = "0") double distanceA,
       @RequestParam(value = "distanceB", defaultValue = "0") double distanceB,
-      @RequestParam(value = "unitA", defaultValue = "meter") String unitA,
-      @RequestParam(value = "unitB", defaultValue = "meter") String unitB,
-      @RequestParam(value = "returnUnit", defaultValue = "meter") String returnUnit) {
+      @RequestParam(value = "unitA", defaultValue = "METERS") String unitA,
+      @RequestParam(value = "unitB", defaultValue = "METERS") String unitB,
+      @RequestParam(value = "returnUnit", defaultValue = "METERS") String returnUnit) {
 
     return (new DistanceCalculator()).calculate(distanceA, distanceB, unitA, unitB, returnUnit);
   }

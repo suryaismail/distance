@@ -1,5 +1,7 @@
 package com.si.distance.data;
 
+import java.text.DecimalFormat;
+
 public class DistanceCalculator {
 
   private static final double YARDS_TO_METERS = 1.094;
@@ -25,7 +27,14 @@ public class DistanceCalculator {
     double distanceAMeters = toMeters(distanceA, unitA);
     double distanceBMeters = toMeters(distanceB, unitB);
 
-    return new TotalDistance(metersToUnit(distanceAMeters + distanceBMeters, returnUnit), returnUnit);
+    // Not sure this is the best solution but will format the answer to 2 decimal places
+    // so it's nicer for the user to see
+    double totalDistance = metersToUnit(distanceAMeters + distanceBMeters, returnUnit);
+    DecimalFormat df = new DecimalFormat("#.##");      
+    totalDistance = Double.valueOf(df.format(totalDistance));
+    
+    
+    return new TotalDistance(totalDistance, returnUnit);
   }
 
 

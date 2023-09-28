@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class DistanceCalculatorTest {
+public class DistanceCalculatorTests {
 
   DistanceCalculator calculator;
 
@@ -19,7 +19,7 @@ public class DistanceCalculatorTest {
   @DisplayName("Add meters should work")   
   void givenInputInMetersAndReturnUnitMeters_whenCalculateDistance_thenReturnMeters() {
     TotalDistance totalDistance = calculator.calculate(2.3, 2.4, "METERS", "METERS", "METERS");
-    assertEquals(4.7, totalDistance.distance(), 0.01);
+    assertEquals(4.7, totalDistance.distance(), 0);
     assertEquals(DistanceUnit.METERS, totalDistance.returnUnit());
   }
 
@@ -27,7 +27,7 @@ public class DistanceCalculatorTest {
   @DisplayName("Add yards should work")   
   void givenInputInYardsAndReturnUnitYards_whenCalculateDistance_thenReturnYards() {
     TotalDistance totalDistance = calculator.calculate(2.3, 2.4, "YARDS", "YARDS", "YARDS");
-    assertEquals(4.7, totalDistance.distance(), 0.01);
+    assertEquals(4.7, totalDistance.distance(), 0);
     assertEquals(DistanceUnit.YARDS, totalDistance.returnUnit());
   }
 
