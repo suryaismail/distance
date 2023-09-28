@@ -33,6 +33,8 @@ Ideally implement the solution in two parts
 * If there’s time, a simple angular project to call the REST API
 
 ### Future improvements
+* Instead of parameters, I really should have put the distances in the request body
+  * didn't realise until the end
 * Been wanting to try parameterized tests
 
 
