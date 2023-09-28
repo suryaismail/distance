@@ -21,11 +21,37 @@ public class DistanceControllerTests {
   {
     mvc.perform(MockMvcRequestBuilders
               .get("/calculate")
+              .param("distanceA", "2.3")
+              .param("distanceB", "3.4")
               .accept(MediaType.APPLICATION_JSON))
         .andDo(print())
         .andExpect(status().isOk())
-        .andExpect(MockMvcResultMatchers.jsonPath("$.distance").value(0))
+        .andExpect(MockMvcResultMatchers.jsonPath("$.distance").value(5.7))
         .andExpect(MockMvcResultMatchers.jsonPath("$.returnUnit").value("METERS"));
   }
-
+  
+  @Test
+  public void badDistance() throws Exception 
+  {
+    mvc.perform(MockMvcRequestBuilders
+              .get("/calculate")
+              .param("distanceA", "2.3")
+              .param("distanceB", "-3.4")
+              .accept(MediaType.APPLICATION_JSON))
+        .andDo(print())
+        .andExpect(status().is4xxClientError());
+  }
+  
+  @Test
+  public void badUnit() throws Exception 
+  {
+    mvc.perform(MockMvcRequestBuilders
+              .get("/calculate")
+              .param("distanceA", "2.3")
+              .param("distanceB", "3.4")
+              .param("unitA", "METER")
+              .accept(MediaType.APPLICATION_JSON))
+        .andDo(print())
+        .andExpect(status().is4xxClientError());
+  }
 }
