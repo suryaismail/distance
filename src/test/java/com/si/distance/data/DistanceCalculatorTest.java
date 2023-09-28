@@ -55,17 +55,16 @@ public class DistanceCalculatorTest {
   }
 
   @Test                                               
-  @DisplayName("Invalid unit, should throw exceptioin")   
+  @DisplayName("Invalid unit, should throw exceptiin")   
   void givenInvalidUnit_whenCalculateDistance_thenThrowException() {
-    assertThrows(NumberFormatException.class, () -> {
-      calculator.calculate(-2.3, -2.4, "YARDS", "feet", "METERS");  });
+    assertThrows(IllegalArgumentException.class, () -> {
+      calculator.calculate(2.3, 2.4, "YARDS", "feet", "METERS");  });
   }
 
   @Test                                               
-  @DisplayName("Invalid return unit, should throw exceptioin")   
+  @DisplayName("Invalid return unit, should throw exception")   
   void givenInvalidReturnUnit_whenCalculateDistance_thenThrowException() {
-
-    assertThrows(NumberFormatException.class, () -> {
-      calculator.calculate(-2.3, -2.4, "YARDS", "METERS", "Centimeters");  });
+    assertThrows(IllegalArgumentException.class, () -> {
+      calculator.calculate(2.3, 2.4, "YARDS", "METERS", "Centimeters");  });
   }
 }
