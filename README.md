@@ -30,5 +30,11 @@ Ideally implement the solution in two parts
   * invalid returnUnit
 
 ### Frontend
-* If there’s time, a simple angular project to call the REST APi
+* If there’s time, a simple angular project to call the REST API
+
+### Future improvements
+* Been wanting to try parameterized tests
+
+
+
 
